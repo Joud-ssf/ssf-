@@ -83,7 +83,11 @@ function generatePDF() {
   img.onload = function() {
 
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    const doc = new jsPDF({
+  orientation: "portrait",
+  unit: "px",
+  format: [img.width, img.height]
+});
 
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
